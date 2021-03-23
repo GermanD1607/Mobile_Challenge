@@ -8,8 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Home extends BasePage{
-    public Home(AndroidDriver driver){
+public class HomePage extends Base{
+    public HomePage(AndroidDriver driver){
         super(driver);
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(searchBar,0));
@@ -29,20 +29,20 @@ public class Home extends BasePage{
 
     private By btnSettings = By.id("com.alibaba.aliexpresshd:id/tv_settings");
 
-    public Cart goToCart() {
+    public CartPage goToCart() {
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(btnCart,0));
         driver.findElement(btnCart).click();
-        return new Cart(driver);
+        return new CartPage(driver);
     }
-    public Login goToAccount() {
+    public LoginPage goToAccount() {
         driver.findElement(btnAccount).click();
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(btnLogIn,0));
         driver.findElement(btnLogIn).click();
-        return new Login(driver);
+        return new LoginPage(driver);
     }
-    public Settings goToSettings() {
+    public SettingsPage goToSettings() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(btnAccount, 0));
         driver.findElement(btnAccount).click();
@@ -52,9 +52,9 @@ public class Home extends BasePage{
         int y = driver.manage().window().getSize().height/2;
         action.press(PointOption.point(x, y)).moveTo(PointOption.point(x, y + 50)).release().perform();
         driver.findElement(btnSettings).click();
-        return new Settings(driver);
+        return new SettingsPage(driver);
     }
-    public Search searchProduct(String searchItem){
+    public SearchPage searchProduct(String searchItem){
         WebElement bar = driver.findElement(searchBar);
         bar.click();
         WebDriverWait wait = new WebDriverWait(driver,10);
@@ -63,9 +63,9 @@ public class Home extends BasePage{
         text.sendKeys(searchItem);
         WebElement button = driver.findElement(btnSearch);
         button.click();
-        return new Search(driver);
+        return new SearchPage(driver);
     }
-    public Search imageSearch(){
+    public SearchPage imageSearch(){
         driver.findElement(searchBar).click();
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(btnImageSearch,0));
@@ -76,6 +76,6 @@ public class Home extends BasePage{
         driver.findElement(btnPhoto).click();
         driver.findElement(btnPhoto).click();
         driver.findElement(btnPhoto).click();
-        return new Search(driver);
+        return new SearchPage(driver);
     }
 }

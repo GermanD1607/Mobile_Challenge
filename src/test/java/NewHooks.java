@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Hooks {
+public class NewHooks {
     protected AndroidDriver driver;
 
     private DesiredCapabilities capabilities = new DesiredCapabilities();

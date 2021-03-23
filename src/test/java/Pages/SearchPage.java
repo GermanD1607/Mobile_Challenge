@@ -6,8 +6,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Search extends BasePage{
-    public Search(AndroidDriver driver){
+public class SearchPage extends Base{
+    public SearchPage(AndroidDriver driver){
         super(driver);
     }
 
@@ -21,11 +21,11 @@ public class Search extends BasePage{
     private By picture = By.id("com.alibaba.aliexpresshd:id/search_product_img");
     private By itemName = By.id("com.alibaba.aliexpresshd:id/tv_product_list_tagged_title");
 
-    public Item openItem(){
+    public ItemPage openItem(){
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(item,0));
         driver.findElement(item).click();
-        return new Item(driver);
+        return new ItemPage(driver);
     }
     public void filter(String min, String max){
         WebDriverWait wait = new WebDriverWait(driver,10);

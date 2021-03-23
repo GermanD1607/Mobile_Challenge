@@ -10,8 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class Settings extends BasePage{
-    public Settings(AndroidDriver driver){
+public class SettingsPage extends Base{
+    public SettingsPage(AndroidDriver driver){
         super(driver);
     }
     private By btnCurrency = By.id("com.alibaba.aliexpresshd:id/rl_currency_settings");
@@ -25,7 +25,7 @@ public class Settings extends BasePage{
     private By btnShipTo = By.id("com.alibaba.aliexpresshd:id/rl_country_settings");
     private By countryOption = By.id("com.alibaba.aliexpresshd:id/tv_country_value");
 
-    public Home changeCurrency(String currencyName){
+    public HomePage changeCurrency(String currencyName){
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(btnCurrency,0));
         WebElement button = driver.findElement(btnCurrency);
@@ -38,7 +38,7 @@ public class Settings extends BasePage{
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(btnGotIt,0));
         driver.findElement(btnGotIt).click();
 
-        return new Home(driver);
+        return new HomePage(driver);
     }
     public String getCurrency(){
         WebDriverWait wait = new WebDriverWait(driver,10);
@@ -51,7 +51,7 @@ public class Settings extends BasePage{
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(countryTxt,0));
         return driver.findElement(countryTxt).getText();
     }
-    public Home changeShipCountry(String countryName){
+    public HomePage changeShipCountry(String countryName){
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(btnShipTo,0));
         driver.findElement(btnShipTo).click();
@@ -67,6 +67,6 @@ public class Settings extends BasePage{
         int y = selectedCountry.getLocation().getY();
         action.press(PointOption.point(x,y)).moveTo(PointOption.point(x,y+50)).release().perform();
         selectedCountry.click();
-        return new Home(driver);
+        return new HomePage(driver);
     }
 }

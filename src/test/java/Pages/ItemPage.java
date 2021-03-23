@@ -8,8 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class Item extends BasePage{
-    public Item(AndroidDriver driver){
+public class ItemPage extends Base{
+    public ItemPage(AndroidDriver driver){
         super(driver);
     }
 

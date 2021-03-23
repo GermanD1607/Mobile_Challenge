@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Login extends BasePage{
-    public Login(AndroidDriver driver){
+public class LoginPage extends Base{
+    public LoginPage(AndroidDriver driver){
         super(driver);
     }
 
